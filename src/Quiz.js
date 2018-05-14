@@ -1,15 +1,16 @@
 import React from "react";
 import Question from "./Question";
-import { QUIZ_LENGTH } from "./constants";
+import QuizTitle from "./QuizTitle";
+import QuizSummary from "./QuizSummary";
 
 const Quiz = ({ questions, currentQuestion, score, onQuestionSubmit }) => (
   <div>
-    {currentQuestion + 1} / {QUIZ_LENGTH}
+    <QuizTitle currentQuestion={currentQuestion} />
     <Question
       {...questions[currentQuestion]}
       onQuestionSubmit={onQuestionSubmit}
     />
-    Your score: {score}
+    <QuizSummary score={score} />
   </div>
 );
 

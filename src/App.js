@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import StartButton from "./StartButton";
+import Button from "./Button";
 import Quiz from "./Quiz";
+import QuizSummary from "./QuizSummary";
 import { drawQuestions, parseQuestions } from "./utils";
 import { QUIZ_LENGTH } from "./constants";
 
@@ -9,7 +10,7 @@ class App extends Component {
     isQuizStarted: false,
     questionsSet: [],
     currentQuestion: 0,
-    score: 0
+    score: null
   };
 
   startQuiz = () => {
@@ -54,8 +55,8 @@ class App extends Component {
       />
     ) : (
       <div>
-        {!!score && <p>Your score: {score}</p>}
-        <StartButton onClick={this.startQuiz} />
+        {score !== null && <QuizSummary score={score} />}
+        <Button onClick={this.startQuiz}>Start Quiz</Button>
       </div>
     );
   }
