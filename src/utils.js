@@ -1,5 +1,6 @@
 import sample from "lodash/sample";
 import times from "lodash/times";
+import capitalize from "lodash/capitalize";
 import { MAJOR_SCALES, QUIZ_LENGTH } from "./constants";
 
 export const drawQuestions = () =>
@@ -17,6 +18,8 @@ export const parseQuestions = questionsSet =>
     const correctAnswer = MAJOR_SCALES[scale].notes[note];
     return { scaleName, noteNumber, correctAnswer };
   });
+
+export const normalizeUserAnswer = answer => capitalize(answer);
 
 export const formatNumber = number => {
   switch (number) {

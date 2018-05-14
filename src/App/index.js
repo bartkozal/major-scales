@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import App from "./App";
-import { drawQuestions, parseQuestions } from "../utils";
+import { drawQuestions, parseQuestions, normalizeUserAnswer } from "../utils";
 import { QUIZ_LENGTH } from "../constants";
 
 export default class AppContainer extends Component {
@@ -30,7 +30,7 @@ export default class AppContainer extends Component {
       return;
     }
 
-    if (userAnswer.toUpperCase() === correctAnswer) {
+    if (normalizeUserAnswer(userAnswer) === correctAnswer) {
       this.setState({
         score: score + 1
       });
