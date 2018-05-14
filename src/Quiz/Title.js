@@ -1,5 +1,5 @@
 import React from "react";
-import { QUIZ_LENGTH } from "./constants";
+import { QUIZ_LENGTH } from "../constants";
 
 const QuizTitle = ({ currentQuestion }) => (
   <div>

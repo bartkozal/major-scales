@@ -1,16 +1,16 @@
 import React from "react";
-import Question from "./Question";
-import QuizTitle from "./QuizTitle";
-import QuizSummary from "./QuizSummary";
+import Question from "../Question";
+import Title from "./Title";
+import Summary from "./Summary";
 
 const Quiz = ({ questions, currentQuestion, score, onQuestionSubmit }) => (
   <div>
-    <QuizTitle currentQuestion={currentQuestion} />
+    <Title currentQuestion={currentQuestion} />
     <Question
       {...questions[currentQuestion]}
       onQuestionSubmit={onQuestionSubmit}
     />
-    <QuizSummary score={score} />
+    <Summary score={score} />
   </div>
 );
 

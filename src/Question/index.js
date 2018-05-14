@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
+import Question from "./Qustion";
 
-class Question extends PureComponent {
+export default class QuestionContainer extends PureComponent {
   state = {
     userAnswer: ""
   };
@@ -24,20 +25,13 @@ class Question extends PureComponent {
     const { userAnswer } = this.state;
 
     return (
-      <div>
-        {noteNumber} note in {scaleName}
-        <div>
-          <form onSubmit={this.onSubmit}>
-            <input
-              type="text"
-              onChange={this.updateUserAnswer}
-              value={userAnswer}
-            />
-          </form>
-        </div>
-      </div>
+      <Question
+        scaleName={scaleName}
+        noteNumber={noteNumber}
+        userAnswer={userAnswer}
+        onSubmit={this.onSubmit}
+        updateUserAnswer={this.updateUserAnswer}
+      />
     );
   }
 }
-
-export default Question;

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Button from "./Button";
-import Quiz from "./Quiz";
-import QuizSummary from "./QuizSummary";
-import { drawQuestions, parseQuestions } from "./utils";
-import { QUIZ_LENGTH } from "./constants";
+import App from "./App";
+import { drawQuestions, parseQuestions } from "../utils";
+import { QUIZ_LENGTH } from "../constants";
 
-class App extends Component {
+export default class AppContainer extends Component {
   state = {
     isQuizStarted: false,
     questionsSet: [],
@@ -46,20 +44,15 @@ class App extends Component {
   render() {
     const { isQuizStarted, questions, currentQuestion, score } = this.state;
 
-    return isQuizStarted ? (
-      <Quiz
+    return (
+      <App
+        isQuizStarted={isQuizStarted}
         questions={questions}
         currentQuestion={currentQuestion}
         score={score}
-        onQuestionSubmit={this.verifyAnswer}
+        verifyAnswer={this.verifyAnswer}
+        startQuiz={this.startQuiz}
       />
-    ) : (
-      <div>
-        {score !== null && <QuizSummary score={score} />}
-        <Button onClick={this.startQuiz}>Start Quiz</Button>
-      </div>
     );
   }
 }
-
-export default App;
