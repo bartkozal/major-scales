@@ -4,7 +4,7 @@ import Title from "./Title";
 import Summary from "./Summary";
 
 const Quiz = ({ questions, currentQuestion, score, onQuestionSubmit }) => (
-  <div>
+  <div className="Quiz">
     <Title currentQuestion={currentQuestion} />
     <Question
       {...questions[currentQuestion]}

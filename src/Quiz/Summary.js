@@ -1,5 +1,9 @@
 import React from "react";
 
-const Summary = ({ score }) => <div>Your score: {score}</div>;
+const Summary = ({ score }) => (
+  <div className="QuizSummary">
+    Your score: <strong>{score}</strong>
+  </div>
+);
 
 export default Summary;

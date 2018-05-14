@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #2f3640;
+}
+
+.App {
+  max-width: 320px;
+  padding: 24px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Button {
+  font-size: 32px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #2f3640;
+  color: #fff;
+}
+
+.Button:hover {
+  cursor: pointer;
+}
+
+.Quiz {
+  text-align: center;
+}
+
+.QuizTitle {
+  margin-bottom: 24px;
+}
+
+.QuizSummary {
+  margin-bottom: 16px;
+}
+
+.Question {
+  margin-bottom: 24px;
+}
+
+.Question-Title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.Question-Input {
+  width: 48px;
+  padding: 4px;
+  font-size: 24px;
+}
+
+.Question-Input:focus {
+  outline: 0;
+}

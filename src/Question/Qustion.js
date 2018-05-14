@@ -7,13 +7,19 @@ const Question = ({
   noteNumber,
   scaleName
 }) => (
-  <div>
-    {noteNumber} note in {scaleName}
-    <div>
-      <form onSubmit={onSubmit}>
-        <input type="text" onChange={updateUserAnswer} value={userAnswer} />
-      </form>
+  <div className="Question">
+    <div className="Question-Title">
+      {noteNumber} note in {scaleName}
     </div>
+
+    <form onSubmit={onSubmit}>
+      <input
+        className="Question-Input"
+        type="text"
+        onChange={updateUserAnswer}
+        value={userAnswer}
+      />
+    </form>
   </div>
 );
 
