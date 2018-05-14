@@ -10,12 +10,13 @@ body {
 .App {
   max-width: 320px;
   padding: 24px;
+  padding-top: 48px;
   margin: 0 auto;
   text-align: center;
 }
 
 .Button {
-  font-size: 32px;
+  font-size: 16px;
   padding: 8px 16px;
   border: 0;
   border-radius: 4px;

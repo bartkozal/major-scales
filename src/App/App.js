@@ -21,8 +21,8 @@ const App = ({
       />
     ) : (
       <div>
-        {score !== null && <QuizSummary score={score} />}
-        <Button onClick={startQuiz}>Start Quiz</Button>
+        <QuizSummary score={score} />
+        <Button onClick={startQuiz}>Try again</Button>
       </div>
     )}
   </div>

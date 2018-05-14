@@ -8,7 +8,7 @@ export default class AppContainer extends Component {
     isQuizStarted: false,
     questionsSet: [],
     currentQuestion: 0,
-    score: null
+    score: 0
   };
 
   startQuiz = () => {
@@ -40,6 +40,10 @@ export default class AppContainer extends Component {
       currentQuestion: currentQuestion + 1
     });
   };
+
+  componentDidMount() {
+    this.startQuiz();
+  }
 
   render() {
     const { isQuizStarted, questions, currentQuestion, score } = this.state;
