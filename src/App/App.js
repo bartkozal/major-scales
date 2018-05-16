@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 import Quiz from "../Quiz";
-import QuizSummary from "../Quiz/Summary";
+import Summary from "../Summary";
 
 const App = ({
   isQuizStarted,
@@ -21,7 +21,7 @@ const App = ({
       />
     ) : (
       <div>
-        <QuizSummary score={score} />
+        <Summary score={score} />
         <Button onClick={startQuiz}>Try again</Button>
       </div>
     )}

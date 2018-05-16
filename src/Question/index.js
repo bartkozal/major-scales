@@ -1,7 +1,7 @@
 import React from "react";
 
 const Question = ({ noteNumber, scaleName }) => (
-  <div className="QuizQuestion">
+  <div className="Question">
     {noteNumber} note in {scaleName}
   </div>
 );

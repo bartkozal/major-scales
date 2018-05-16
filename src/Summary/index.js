@@ -1,7 +1,7 @@
 import React from "react";
 
 const Summary = ({ score }) => (
-  <div className="QuizSummary">
+  <div className="Summary">
     Your score: <strong>{score}</strong>
   </div>
 );

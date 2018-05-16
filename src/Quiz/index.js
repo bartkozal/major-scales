@@ -1,8 +1,8 @@
 import React from "react";
-import Title from "./Title";
-import Question from "./Question";
 import AnswerInput from "../AnswerInput";
-import Summary from "./Summary";
+import Question from "../Question";
+import Summary from "../Summary";
+import Title from "../Title";
 
 const Quiz = ({ questions, currentQuestion, score, onAnswerSubmit }) => {
   const { scaleName, noteNumber, correctAnswer } = questions[currentQuestion];
