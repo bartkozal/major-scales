@@ -4,17 +4,17 @@ import Quiz from "../Quiz";
 import Summary from "../Summary";
 
 const App = ({
-  isQuizStarted,
-  questions,
+  isQuizRunning,
+  questionsSet,
   currentQuestion,
   score,
   verifyAnswer,
   startQuiz
 }) => (
   <div className="App">
-    {isQuizStarted ? (
+    {isQuizRunning ? (
       <Quiz
-        questions={questions}
+        questionsSet={questionsSet}
         currentQuestion={currentQuestion}
         score={score}
         onAnswerSubmit={verifyAnswer}

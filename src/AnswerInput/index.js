@@ -3,29 +3,29 @@ import AnswerInput from "./AnswerInput";
 
 export default class AnswerInputContainer extends PureComponent {
   state = {
-    userAnswer: ""
+    userInput: ""
   };
 
   updateUserAnswer = event => {
-    this.setState({ userAnswer: event.target.value });
+    this.setState({ userInput: event.target.value });
   };
 
   onInputSubmit = event => {
     event.preventDefault();
 
-    const { userAnswer } = this.state;
+    const { userInput } = this.state;
     const { correctAnswer, onAnswerSubmit } = this.props;
 
-    onAnswerSubmit(userAnswer, correctAnswer);
-    this.setState({ userAnswer: "" });
+    onAnswerSubmit(userInput, correctAnswer);
+    this.setState({ userInput: "" });
   };
 
   render() {
-    const { userAnswer } = this.state;
+    const { userInput } = this.state;
 
     return (
       <AnswerInput
-        userAnswer={userAnswer}
+        userAnswer={userInput}
         onInputSubmit={this.onInputSubmit}
         updateUserAnswer={this.updateUserAnswer}
       />

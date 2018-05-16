@@ -4,8 +4,11 @@ import Question from "../Question";
 import Summary from "../Summary";
 import Title from "../Title";
 
-const Quiz = ({ questions, currentQuestion, score, onAnswerSubmit }) => {
-  const { scaleName, noteNumber, correctAnswer } = questions[currentQuestion];
+const Quiz = ({ questionsSet, currentQuestion, score, onAnswerSubmit }) => {
+  const { scaleName, noteNumber, correctAnswer } = questionsSet[
+    currentQuestion
+  ];
+
   return (
     <div className="Quiz">
       <Title currentQuestion={currentQuestion} />

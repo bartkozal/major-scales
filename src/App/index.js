@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import App from "./App";
-import { drawQuestions, parseQuestions, normalizeUserAnswer } from "../utils";
+import { drawQuestions, parseQuestions, normalizeAnswer } from "../utils";
 import { QUIZ_LENGTH } from "../constants";
 
 export default class AppContainer extends Component {
   state = {
-    isQuizStarted: false,
+    isQuizRunning: false,
     questionsSet: [],
     currentQuestion: 0,
     score: 0
@@ -13,8 +13,8 @@ export default class AppContainer extends Component {
 
   startQuiz = () => {
     this.setState({
-      isQuizStarted: true,
-      questions: parseQuestions(drawQuestions()),
+      isQuizRunning: true,
+      questionsSet: parseQuestions(drawQuestions()),
       currentQuestion: 0,
       score: 0
     });
@@ -25,12 +25,12 @@ export default class AppContainer extends Component {
 
     if (currentQuestion === QUIZ_LENGTH - 1) {
       this.setState({
-        isQuizStarted: false
+        isQuizRunning: false
       });
       return;
     }
 
-    if (normalizeUserAnswer(userAnswer) === correctAnswer) {
+    if (normalizeAnswer(userAnswer) === correctAnswer) {
       this.setState({
         score: score + 1
       });
@@ -46,12 +46,12 @@ export default class AppContainer extends Component {
   }
 
   render() {
-    const { isQuizStarted, questions, currentQuestion, score } = this.state;
+    const { isQuizRunning, questionsSet, currentQuestion, score } = this.state;
 
     return (
       <App
-        isQuizStarted={isQuizStarted}
-        questions={questions}
+        isQuizRunning={isQuizRunning}
+        questionsSet={questionsSet}
         currentQuestion={currentQuestion}
         score={score}
         verifyAnswer={this.verifyAnswer}

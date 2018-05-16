@@ -19,7 +19,7 @@ export const parseQuestions = questionsSet =>
     return { scaleName, noteNumber, correctAnswer };
   });
 
-export const normalizeUserAnswer = answer => capitalize(answer);
+export const normalizeAnswer = answer => capitalize(answer);
 
 export const formatNumber = number => {
   switch (number) {

@@ -2,7 +2,7 @@ import {
   drawQuestions,
   parseQuestions,
   formatNumber,
-  normalizeUserAnswer
+  normalizeAnswer
 } from "./utils";
 
 test("drawQuestions", () => {
@@ -21,7 +21,7 @@ test("parseQuestions", () => {
   );
 });
 
-test("normalizeUserAnswer", () => {
+test("normalizeAnswer", () => {
   const testCases = [
     ["g", "G"],
     ["g#", "G#"],
@@ -31,7 +31,7 @@ test("normalizeUserAnswer", () => {
   ];
 
   testCases.forEach(([input, returnedValue]) =>
-    expect(normalizeUserAnswer(input)).toEqual(returnedValue)
+    expect(normalizeAnswer(input)).toEqual(returnedValue)
   );
 });
 
