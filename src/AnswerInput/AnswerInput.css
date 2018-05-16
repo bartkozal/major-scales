@@ -1,0 +1,9 @@
+.AnswerInput {
+  width: 48px;
+  padding: 4px;
+  font-size: 24px;
+}
+
+.AnswerInput:focus {
+  outline: 0;
+}

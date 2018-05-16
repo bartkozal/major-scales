@@ -11,16 +11,6 @@
   margin-bottom: 16px;
 }
 
-.QuizAnswerInput {
-  width: 48px;
-  padding: 4px;
-  font-size: 24px;
-}
-
-.QuizAnswerInput:focus {
-  outline: 0;
-}
-
 .QuizSummary {
   margin-top: 24px;
   margin-bottom: 16px;

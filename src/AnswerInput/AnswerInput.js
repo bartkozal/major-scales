@@ -1,9 +1,9 @@
 import React from "react";
 
-const AnswerInput = ({ onSubmit, updateUserAnswer, userAnswer }) => (
-  <form onSubmit={onSubmit}>
+const AnswerInput = ({ onInputSubmit, updateUserAnswer, userAnswer }) => (
+  <form onSubmit={onInputSubmit}>
     <input
-      className="QuizAnswerInput"
+      className="AnswerInput"
       type="text"
       onChange={updateUserAnswer}
       value={userAnswer}

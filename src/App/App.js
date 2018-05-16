@@ -17,7 +17,7 @@ const App = ({
         questions={questions}
         currentQuestion={currentQuestion}
         score={score}
-        onQuestionSubmit={verifyAnswer}
+        onAnswerSubmit={verifyAnswer}
       />
     ) : (
       <div>
