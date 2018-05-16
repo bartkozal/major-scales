@@ -1,7 +1,8 @@
+@import "./Answer/Answer.css";
 @import "./AnswerInput/AnswerInput.css";
 @import "./App/App.css";
+@import "./Button/Button.css";
 @import "./Question/Question.css";
 @import "./Quiz/Quiz.css";
-@import "./RestartButton/RestartButton.css";
 @import "./Summary/Summary.css";
 @import "./Title/Title.css";

@@ -2,17 +2,17 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import Quiz from "./Quiz";
 import { QUIZ_LENGTH } from "../constants";
-import { stopQuiz, scorePoint, loadNextQuestion } from "../actionCreators";
+import { stopQuiz, scorePoint, showAnswer } from "../actionCreators";
 
 class QuizContainer extends PureComponent {
   verifyAnswer = () => {
     const {
-      userInput,
-      correctAnswer,
       currentQuestion,
       stopQuiz,
       scorePoint,
-      loadNextQuestion
+      showAnswer,
+      userInput,
+      correctAnswer
     } = this.props;
 
     if (currentQuestion === QUIZ_LENGTH - 1) {
@@ -24,20 +24,34 @@ class QuizContainer extends PureComponent {
       scorePoint();
     }
 
-    loadNextQuestion();
+    showAnswer();
   };
 
   render() {
-    return <Quiz onQuizSubmit={this.verifyAnswer} />;
+    const { userInput, correctAnswer, isAnswerVisible } = this.props;
+
+    return (
+      <Quiz
+        isAnswerVisible={isAnswerVisible}
+        isAnswerCorrect={userInput === correctAnswer}
+        onQuizSubmit={this.verifyAnswer}
+      />
+    );
   }
 }
 
-const mapStateToProps = ({ userInput, questionsSet, currentQuestion }) => ({
+const mapStateToProps = ({
+  isAnswerVisible,
+  userInput,
+  questionsSet,
+  currentQuestion
+}) => ({
+  isAnswerVisible,
   userInput,
   currentQuestion,
   correctAnswer: questionsSet[currentQuestion].correctAnswer
 });
 
-const mapDispatchToProps = { stopQuiz, scorePoint, loadNextQuestion };
+const mapDispatchToProps = { stopQuiz, scorePoint, showAnswer };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizContainer);

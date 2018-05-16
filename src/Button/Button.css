@@ -1,4 +1,4 @@
-.RestartButton {
+.Button {
   font-size: 16px;
   padding: 8px 16px;
   border: 0;
@@ -7,6 +7,6 @@
   color: #fff;
 }
 
-.RestartButton:hover {
+.Button:hover {
   cursor: pointer;
 }

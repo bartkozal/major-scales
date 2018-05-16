@@ -11,7 +11,6 @@ class AnswerInputContainer extends PureComponent {
   handleInputSubmit = event => {
     event.preventDefault();
     this.props.onAnswerSubmit();
-    this.props.clearUserInput();
   };
 
   render() {

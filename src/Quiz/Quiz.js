@@ -1,14 +1,24 @@
-import React from "react";
-import AnswerInput from "../AnswerInput";
-import Question from "../Question";
-import Summary from "../Summary";
+import React, { Fragment } from "react";
 import Title from "../Title";
+import Question from "../Question";
+import AnswerInput from "../AnswerInput";
+import Answer from "../Answer";
+import NextButton from "../NextButton";
+import Summary from "../Summary";
 
-const Quiz = ({ onQuizSubmit }) => (
+const Quiz = ({ onQuizSubmit, isAnswerCorrect, isAnswerVisible }) => (
   <div className="Quiz">
     <Title />
     <Question />
     <AnswerInput onAnswerSubmit={onQuizSubmit} />
+
+    {isAnswerVisible && (
+      <Fragment>
+        <Answer isAnswerCorrect={isAnswerCorrect} />
+        <NextButton />
+      </Fragment>
+    )}
+
     <Summary />
   </div>
 );

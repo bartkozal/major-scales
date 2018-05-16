@@ -1,0 +1,13 @@
+.Answer {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.Answer--correct {
+  color: #6ab04c;
+}
+
+.Answer--incorrect {
+  color: #eb4d4b;
+}

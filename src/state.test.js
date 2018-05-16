@@ -4,6 +4,7 @@ import {
   clearUserInput,
   startQuiz,
   stopQuiz,
+  showAnswer,
   scorePoint,
   loadNextQuestion
 } from "./actionCreators";
@@ -13,7 +14,8 @@ test("updateUserInput", () => {
   const reducer = rootReducer(initialState, action);
 
   expect(reducer).toMatchObject({
-    userInput: "Foo"
+    userInput: "Foo",
+    isAnswerVisible: false
   });
 });
 
@@ -32,6 +34,7 @@ test("startQuiz", () => {
 
   expect(reducer).toMatchObject({
     isQuizRunning: true,
+    isAnswerVisible: false,
     currentQuestion: 0,
     score: 0
   });
@@ -47,20 +50,33 @@ test("stopQuiz", () => {
   });
 });
 
-test("scorePoint", () => {
-  const action = scorePoint();
+test("showAnswer", () => {
+  const action = showAnswer();
   const reducer = rootReducer(initialState, action);
 
   expect(reducer).toMatchObject({
-    score: 1
+    isAnswerVisible: true
+  });
+});
+
+test("scorePoint", () => {
+  const action = scorePoint();
+  const reducer = rootReducer({ ...initialState, score: 7 }, action);
+
+  expect(reducer).toMatchObject({
+    score: 8
   });
 });
 
 test("loadNextQuestion", () => {
   const action = loadNextQuestion();
-  const reducer = rootReducer(initialState, action);
+  const reducer = rootReducer(
+    { ...initialState, currentQuestion: 3, showAnswer: true },
+    action
+  );
 
   expect(reducer).toMatchObject({
-    currentQuestion: 1
+    currentQuestion: 4,
+    isAnswerVisible: false
   });
 });

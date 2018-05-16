@@ -2,6 +2,7 @@ export const UPDATE_USER_INPUT = "UPDATE_USER_INPUT";
 export const CLEAR_USER_INPUT = "CLEAR_USER_INPUT";
 export const START_QUIZ = "START_QUIZ";
 export const STOP_QUIZ = "STOP_QUIZ";
+export const SHOW_ANSWER = "SHOW_ANSWER";
 export const SCORE_POINT = "SCORE_POINT";
 export const LOAD_NEXT_QUESTION = "LOAD_NEXT_QUESTION";
 
@@ -22,6 +23,10 @@ export const startQuiz = () => ({
 
 export const stopQuiz = () => ({
   type: STOP_QUIZ
+});
+
+export const showAnswer = () => ({
+  type: SHOW_ANSWER
 });
 
 export const scorePoint = () => ({
