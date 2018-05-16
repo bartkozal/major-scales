@@ -1,5 +1,6 @@
-import React, { PureComponent } from "react";
-import Question from "./Qustion";
+import React, { PureComponent, Fragment } from "react";
+import Question from "../Quiz/Question";
+import AnswerInput from "../Quiz/AnswerInput";
 
 export default class QuestionContainer extends PureComponent {
   state = {
@@ -25,13 +26,14 @@ export default class QuestionContainer extends PureComponent {
     const { userAnswer } = this.state;
 
     return (
-      <Question
-        scaleName={scaleName}
-        noteNumber={noteNumber}
-        userAnswer={userAnswer}
-        onSubmit={this.onSubmit}
-        updateUserAnswer={this.updateUserAnswer}
-      />
+      <Fragment>
+        <Question scaleName={scaleName} noteNumber={noteNumber} />
+        <AnswerInput
+          userAnswer={userAnswer}
+          onSubmit={this.onSubmit}
+          updateUserAnswer={this.updateUserAnswer}
+        />
+      </Fragment>
     );
   }
 }

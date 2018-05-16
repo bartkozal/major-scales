@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #2f3640;
+}
+
+.App {
+  max-width: 320px;
+  padding: 24px;
+  padding-top: 48px;
+  margin: 0 auto;
+  text-align: center;
+}
