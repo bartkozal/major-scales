@@ -1,25 +1,43 @@
-import React from "react";
-import AnswerInput from "../AnswerInput";
-import Question from "../Question";
-import Summary from "../Summary";
-import Title from "../Title";
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import Quiz from "./Quiz";
+import { QUIZ_LENGTH } from "../constants";
+import { stopQuiz, scorePoint, loadNextQuestion } from "../actionCreators";
 
-const Quiz = ({ questionsSet, currentQuestion, score, onAnswerSubmit }) => {
-  const { scaleName, noteNumber, correctAnswer } = questionsSet[
-    currentQuestion
-  ];
+class QuizContainer extends PureComponent {
+  verifyAnswer = () => {
+    const {
+      userInput,
+      correctAnswer,
+      currentQuestion,
+      stopQuiz,
+      scorePoint,
+      loadNextQuestion
+    } = this.props;
 
-  return (
-    <div className="Quiz">
-      <Title currentQuestion={currentQuestion} />
-      <Question scaleName={scaleName} noteNumber={noteNumber} />
-      <AnswerInput
-        correctAnswer={correctAnswer}
-        onAnswerSubmit={onAnswerSubmit}
-      />
-      <Summary score={score} />
-    </div>
-  );
-};
+    if (currentQuestion === QUIZ_LENGTH - 1) {
+      stopQuiz();
+      return;
+    }
 
-export default Quiz;
+    if (userInput === correctAnswer) {
+      scorePoint();
+    }
+
+    loadNextQuestion();
+  };
+
+  render() {
+    return <Quiz onQuizSubmit={this.verifyAnswer} />;
+  }
+}
+
+const mapStateToProps = ({ userInput, questionsSet, currentQuestion }) => ({
+  userInput,
+  currentQuestion,
+  correctAnswer: questionsSet[currentQuestion].correctAnswer
+});
+
+const mapDispatchToProps = { stopQuiz, scorePoint, loadNextQuestion };
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizContainer);

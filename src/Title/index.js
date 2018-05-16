@@ -1,10 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { QUIZ_LENGTH } from "../constants";
+import Title from "./Title";
 
-const Title = ({ currentQuestion }) => (
-  <div className="Title">
-    {currentQuestion + 1} / {QUIZ_LENGTH}
-  </div>
+const TitleContainer = ({ currentQuestion }) => (
+  <Title currentQuestion={currentQuestion} quizLength={QUIZ_LENGTH} />
 );
 
-export default Title;
+const mapStateToProps = ({ currentQuestion }) => ({ currentQuestion });
+
+export default connect(mapStateToProps)(TitleContainer);

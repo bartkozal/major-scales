@@ -1,34 +1,39 @@
 import React, { PureComponent } from "react";
 import AnswerInput from "./AnswerInput";
+import { connect } from "react-redux";
+import { updateUserInput, clearUserInput } from "../actionCreators";
 
-export default class AnswerInputContainer extends PureComponent {
-  state = {
-    userInput: ""
+class AnswerInputContainer extends PureComponent {
+  handleInputChange = event => {
+    this.props.updateUserInput(event.target.value);
   };
 
-  updateUserAnswer = event => {
-    this.setState({ userInput: event.target.value });
-  };
-
-  onInputSubmit = event => {
+  handleInputSubmit = event => {
     event.preventDefault();
-
-    const { userInput } = this.state;
-    const { correctAnswer, onAnswerSubmit } = this.props;
-
-    onAnswerSubmit(userInput, correctAnswer);
-    this.setState({ userInput: "" });
+    this.props.onAnswerSubmit();
+    this.props.clearUserInput();
   };
 
   render() {
-    const { userInput } = this.state;
+    const { userInput } = this.props;
 
     return (
       <AnswerInput
-        userAnswer={userInput}
-        onInputSubmit={this.onInputSubmit}
-        updateUserAnswer={this.updateUserAnswer}
+        userInput={userInput}
+        onInputSubmit={this.handleInputSubmit}
+        onInputChange={this.handleInputChange}
       />
     );
   }
 }
+
+const mapStateToProps = ({ userInput }) => ({ userInput });
+
+const mapDispatchToProps = {
+  updateUserInput,
+  clearUserInput
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  AnswerInputContainer
+);

@@ -1,28 +1,16 @@
 import React from "react";
-import Button from "../Button";
 import Quiz from "../Quiz";
+import RestartButton from "../RestartButton";
 import Summary from "../Summary";
 
-const App = ({
-  isQuizRunning,
-  questionsSet,
-  currentQuestion,
-  score,
-  verifyAnswer,
-  startQuiz
-}) => (
+const App = ({ isQuizRunning }) => (
   <div className="App">
     {isQuizRunning ? (
-      <Quiz
-        questionsSet={questionsSet}
-        currentQuestion={currentQuestion}
-        score={score}
-        onAnswerSubmit={verifyAnswer}
-      />
+      <Quiz />
     ) : (
       <div>
-        <Summary score={score} />
-        <Button onClick={startQuiz}>Try again</Button>
+        <Summary />
+        <RestartButton />
       </div>
     )}
   </div>

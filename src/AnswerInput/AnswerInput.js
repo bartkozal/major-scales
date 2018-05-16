@@ -1,12 +1,12 @@
 import React from "react";
 
-const AnswerInput = ({ onInputSubmit, updateUserAnswer, userAnswer }) => (
+const AnswerInput = ({ onInputSubmit, onInputChange, userInput }) => (
   <form onSubmit={onInputSubmit}>
     <input
       className="AnswerInput"
       type="text"
-      onChange={updateUserAnswer}
-      value={userAnswer}
+      onChange={onInputChange}
+      value={userInput}
     />
   </form>
 );

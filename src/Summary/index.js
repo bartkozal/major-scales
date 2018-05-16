@@ -1,9 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+import Summary from "./Summary";
 
-const Summary = ({ score }) => (
-  <div className="Summary">
-    Your score: <strong>{score}</strong>
-  </div>
-);
+const SummaryContainer = ({ score }) => <Summary score={score} />;
 
-export default Summary;
+const mapStateToProps = ({ score }) => ({ score });
+
+export default connect(mapStateToProps)(SummaryContainer);

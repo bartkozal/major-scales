@@ -1,9 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import Question from "./Question";
 
-const Question = ({ noteNumber, scaleName }) => (
-  <div className="Question">
-    {noteNumber} note in {scaleName}
-  </div>
+const QuestionContainer = ({ scaleName, noteNumber }) => (
+  <Question scaleName={scaleName} noteNumber={noteNumber} />
 );
 
-export default Question;
+const mapStateToProps = ({ questionsSet, currentQuestion }) => ({
+  scaleName: questionsSet[currentQuestion].scaleName,
+  noteNumber: questionsSet[currentQuestion].noteNumber
+});
+
+export default connect(mapStateToProps)(QuestionContainer);
