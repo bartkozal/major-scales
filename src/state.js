@@ -7,7 +7,7 @@ import {
   SCORE_POINT,
   LOAD_NEXT_QUESTION
 } from "./actionCreators";
-import { drawQuestions, parseQuestions, normalizeAnswer } from "./utils";
+import { drawQuestions, normalizeAnswer } from "./utils";
 
 export const initialState = {
   isQuizRunning: false,
@@ -35,7 +35,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isQuizRunning: true,
-        questionsSet: parseQuestions(drawQuestions()),
+        questionsSet: drawQuestions(),
         currentQuestion: 0,
         score: 0,
         isAnswerVisible: false
