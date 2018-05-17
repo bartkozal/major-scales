@@ -10,7 +10,12 @@ class NextButton extends PureComponent {
   };
 
   render() {
-    return <Button onClick={this.handleButtonClick}>Next one</Button>;
+    return (
+      <div>
+        <Button onClick={this.handleButtonClick}>Next one</Button>
+        <div className="NextButton__hint">or press Enter key</div>
+      </div>
+    );
   }
 }
 

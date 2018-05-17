@@ -6,7 +6,8 @@ import {
   stopQuiz,
   scorePoint,
   showAnswer,
-  loadNextQuestion
+  loadNextQuestion,
+  clearUserInput
 } from "../actionCreators";
 
 export class QuizContainer extends PureComponent {
@@ -18,7 +19,8 @@ export class QuizContainer extends PureComponent {
       showAnswer,
       isAnswerCorrect,
       isAnswerVisible,
-      loadNextQuestion
+      loadNextQuestion,
+      clearUserInput
     } = this.props;
 
     if (currentQuestion === QUIZ_LENGTH - 1) {
@@ -28,6 +30,7 @@ export class QuizContainer extends PureComponent {
 
     if (isAnswerVisible) {
       loadNextQuestion();
+      clearUserInput();
       return;
     }
 
@@ -72,7 +75,8 @@ const mapDispatchToProps = {
   stopQuiz,
   scorePoint,
   showAnswer,
-  loadNextQuestion
+  loadNextQuestion,
+  clearUserInput
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizContainer);

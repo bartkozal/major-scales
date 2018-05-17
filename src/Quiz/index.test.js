@@ -10,6 +10,7 @@ describe("verifyAnswer", () => {
         loadNextQuestion={jest.fn()}
         scorePoint={jest.fn()}
         showAnswer={jest.fn()}
+        clearUserInput={jest.fn()}
         {...props}
       />
     );
@@ -64,11 +65,13 @@ describe("verifyAnswer", () => {
       stopQuiz,
       loadNextQuestion,
       scorePoint,
-      showAnswer
+      showAnswer,
+      clearUserInput
     } = container.props;
 
     expect(stopQuiz).not.toHaveBeenCalled();
     expect(loadNextQuestion).toHaveBeenCalled();
+    expect(clearUserInput).toHaveBeenCalled();
     expect(scorePoint).not.toHaveBeenCalled();
     expect(showAnswer).not.toHaveBeenCalled();
   });

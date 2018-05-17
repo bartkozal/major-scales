@@ -2,6 +2,7 @@
 @import "./AnswerInput/AnswerInput.css";
 @import "./App/App.css";
 @import "./Button/Button.css";
+@import "./NextButton/NextButton.css";
 @import "./Question/Question.css";
 @import "./Quiz/Quiz.css";
 @import "./Summary/Summary.css";
