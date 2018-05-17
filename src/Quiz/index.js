@@ -2,17 +2,23 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import Quiz from "./Quiz";
 import { QUIZ_LENGTH } from "../constants";
-import { stopQuiz, scorePoint, showAnswer } from "../actionCreators";
+import {
+  stopQuiz,
+  scorePoint,
+  showAnswer,
+  loadNextQuestion
+} from "../actionCreators";
 
-class QuizContainer extends PureComponent {
+export class QuizContainer extends PureComponent {
   verifyAnswer = () => {
     const {
       currentQuestion,
       stopQuiz,
       scorePoint,
       showAnswer,
-      userInput,
-      correctAnswer
+      isAnswerCorrect,
+      isAnswerVisible,
+      loadNextQuestion
     } = this.props;
 
     if (currentQuestion === QUIZ_LENGTH - 1) {
@@ -20,7 +26,12 @@ class QuizContainer extends PureComponent {
       return;
     }
 
-    if (userInput === correctAnswer) {
+    if (isAnswerVisible) {
+      loadNextQuestion();
+      return;
+    }
+
+    if (isAnswerCorrect) {
       scorePoint();
     }
 
@@ -28,12 +39,12 @@ class QuizContainer extends PureComponent {
   };
 
   render() {
-    const { userInput, correctAnswer, isAnswerVisible } = this.props;
+    const { isAnswerCorrect, isAnswerVisible } = this.props;
 
     return (
       <Quiz
         isAnswerVisible={isAnswerVisible}
-        isAnswerCorrect={userInput === correctAnswer}
+        isAnswerCorrect={isAnswerCorrect}
         onQuizSubmit={this.verifyAnswer}
       />
     );
@@ -45,13 +56,23 @@ const mapStateToProps = ({
   userInput,
   questionsSet,
   currentQuestion
-}) => ({
-  isAnswerVisible,
-  userInput,
-  currentQuestion,
-  correctAnswer: questionsSet[currentQuestion].correctAnswer
-});
+}) => {
+  const correctAnswer = questionsSet[currentQuestion].correctAnswer;
 
-const mapDispatchToProps = { stopQuiz, scorePoint, showAnswer };
+  return {
+    isAnswerVisible,
+    isAnswerCorrect: userInput === correctAnswer,
+    userInput,
+    currentQuestion,
+    correctAnswer
+  };
+};
+
+const mapDispatchToProps = {
+  stopQuiz,
+  scorePoint,
+  showAnswer,
+  loadNextQuestion
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizContainer);
