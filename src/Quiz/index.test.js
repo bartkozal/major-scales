@@ -77,7 +77,10 @@ describe("verifyAnswer", () => {
   });
 
   test("stop quiz on last question", () => {
-    const container = callVerifyAnswerWithProps({ currentQuestion: 9 });
+    const container = callVerifyAnswerWithProps({
+      currentQuestion: 9,
+      isAnswerVisible: true
+    });
     const {
       stopQuiz,
       loadNextQuestion,

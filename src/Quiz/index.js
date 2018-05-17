@@ -23,7 +23,7 @@ export class QuizContainer extends PureComponent {
       clearUserInput
     } = this.props;
 
-    if (currentQuestion === QUIZ_LENGTH - 1) {
+    if (currentQuestion === QUIZ_LENGTH - 1 && isAnswerVisible) {
       stopQuiz();
       return;
     }
