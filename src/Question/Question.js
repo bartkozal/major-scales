@@ -1,4 +1,5 @@
 import React from "react";
+import "./Question.css";
 
 const Question = ({ noteNumber, scaleName }) => (
   <div className="Question">

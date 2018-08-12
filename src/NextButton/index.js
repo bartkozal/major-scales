@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import Button from "../Button";
 import { loadNextQuestion, clearUserInput } from "../actionCreators";
+import "./NextButton.css";
 
 class NextButton extends PureComponent {
   handleButtonClick = () => {
@@ -24,4 +25,7 @@ const mapDispatchToProps = {
   clearUserInput
 };
 
-export default connect(null, mapDispatchToProps)(NextButton);
+export default connect(
+  null,
+  mapDispatchToProps
+)(NextButton);

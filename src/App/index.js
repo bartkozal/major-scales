@@ -17,4 +17,7 @@ const mapStateToProps = ({ isQuizRunning }) => ({ isQuizRunning });
 
 const mapDispatchToProps = { startQuiz };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppContainer);

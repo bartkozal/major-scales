@@ -1,4 +1,5 @@
 import React from "react";
+import "./AnswerInput.css";
 
 const AnswerInput = ({ onInputSubmit, onInputChange, userInput }) => (
   <form onSubmit={onInputSubmit}>

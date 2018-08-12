@@ -5,6 +5,7 @@ import AnswerInput from "../AnswerInput";
 import Answer from "../Answer";
 import NextButton from "../NextButton";
 import Summary from "../Summary";
+import "./Quiz.css";
 
 const Quiz = ({ onQuizSubmit, isAnswerCorrect, isAnswerVisible }) => (
   <div className="Quiz">

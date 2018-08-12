@@ -1,4 +1,5 @@
 import React from "react";
+import "./Title.css";
 
 const Title = ({ currentQuestion, quizLength }) => (
   <div className="Title">
