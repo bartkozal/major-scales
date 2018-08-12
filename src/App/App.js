@@ -2,6 +2,7 @@ import React from "react";
 import Quiz from "../Quiz";
 import RestartButton from "../RestartButton";
 import Summary from "../Summary";
+import PianoGroove from "../PianoGroove";
 import "./App.css";
 
 const App = ({ isQuizRunning }) => (
@@ -14,6 +15,8 @@ const App = ({ isQuizRunning }) => (
         <RestartButton />
       </div>
     )}
+
+    <PianoGroove />
   </div>
 );
 
